@@ -33,10 +33,10 @@
 		{
 			"type": "func",
 			"command": "host start",
-			"problemMatcher": "$func-watch",
+			"problemMatcher": "$func-python-watch",
 			"isBackground": true,
 			"options": {
-				"cwd": "${workspaceFolder}/challenge-1"
+				"cwd": "${workspaceFolder}/challenge-3\\functionapp"
 			}
 		}
 	],
