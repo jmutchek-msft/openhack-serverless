@@ -1,0 +1,9 @@
+GET http://localhost:7071/api/products/123
+
+###
+
+GET http://localhost:7071/api/products?id=456
+
+###
+
+GET https://httptriggerfunc-kirhdv.azurewebsites.net/api/products/789

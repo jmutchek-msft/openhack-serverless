@@ -1,0 +1,50 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "npm install (functions)",
+			"command": "npm install",
+			"options": {
+				"cwd": "${workspaceFolder}/challenge-1"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "npm prune (functions)",
+			"command": "npm prune --production",
+			"problemMatcher": [],
+			"options": {
+				"cwd": "${workspaceFolder}/challenge-1"
+			}
+		},
+		{
+			"label": "generateDebugSymbols",
+			"command": "dotnet",
+			"args": [
+				"${input:getDebugSymbolDll}"
+			],
+			"type": "process",
+			"problemMatcher": "$msCompile",
+			"options": {
+				"cwd": "${workspaceFolder}/challenge-1"
+			}
+		},
+		{
+			"type": "func",
+			"command": "host start",
+			"problemMatcher": "$func-watch",
+			"isBackground": true,
+			"options": {
+				"cwd": "${workspaceFolder}/challenge-1"
+			}
+		}
+	],
+	"inputs": [
+		{
+			"id": "getDebugSymbolDll",
+			"type": "command",
+			"command": "azureLogicAppsStandard.getDebugSymbolDll"
+		}
+	]
+}
