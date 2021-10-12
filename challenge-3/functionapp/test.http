@@ -1,4 +1,5 @@
-POST http://localhost:7071/api/rating?name=John
+POST http://localhost:7071/api/CreateRating?name=John
 
 ###
 
+POST https://ratingsohwin.azurewebsites.net/api/CreateRating?name=John
