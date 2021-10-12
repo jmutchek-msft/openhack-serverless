@@ -1,9 +1,10 @@
 {
-  "azureFunctions.deploySubpath": "challenge-1",
+  "azureFunctions.deploySubpath": "challenge-3\\functionapp",
   "azureFunctions.postDeployTask": "npm install (functions)",
-  "azureFunctions.projectLanguage": "JavaScript",
+  "azureFunctions.projectLanguage": "Python",
   "azureFunctions.projectRuntime": "~3",
   "debug.internalConsoleOptions": "neverOpen",
   "azureFunctions.preDeployTask": "npm prune (functions)",
-  "azureFunctions.suppressProject": true
+  "azureFunctions.suppressProject": true,
+  "azureFunctions.scmDoBuildDuringDeployment": true
 }
