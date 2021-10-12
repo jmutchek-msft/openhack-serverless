@@ -1,20 +1,20 @@
-$Random = -join ((97..122) | Get-Random -Count 6 | % {[char]$_}) # Ganerating a 6 character string to aid naming uniqueness
+$Random = -join ((97..122) | Get-Random -Count 6 | % {[char]$_}) # Generating a 6 character string to aid naming uniqueness
 
 $Location = "eastus" # Location of the Resources we will be creating
 
-$MyResourceGroup = "OpenHackRG" # Change to your resource group
+$MyResourceGroup = "rgname" # Change to your resource group
 
-$StorageAccountName= "openhack1$Random"
+$StorageAccountName= "rat$Random"
 
-$FunctionName="ratings-py-$Random"
+$FunctionName="ratings-node-$Random"
 
-$AppServicePlanName = "appservicehack-py-$Random"
+$AppServicePlanName = "ratings-node-$Random"
 
 
 
-$runtime = "python"
+$runtime = "node"
 
-$runtimeversion = "3.9"
+$runtimeversion = "12"
 
 
 

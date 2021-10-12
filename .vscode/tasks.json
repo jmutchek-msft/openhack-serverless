@@ -2,23 +2,6 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"type": "shell",
-			"label": "npm install (functions)",
-			"command": "npm install",
-			"options": {
-				"cwd": "${workspaceFolder}/challenge-1"
-			}
-		},
-		{
-			"type": "shell",
-			"label": "npm prune (functions)",
-			"command": "npm prune --production",
-			"problemMatcher": [],
-			"options": {
-				"cwd": "${workspaceFolder}/challenge-1"
-			}
-		},
-		{
 			"label": "generateDebugSymbols",
 			"command": "dotnet",
 			"args": [
@@ -33,8 +16,26 @@
 		{
 			"type": "func",
 			"command": "host start",
-			"problemMatcher": "$func-python-watch",
+			"problemMatcher": "$func-node-watch",
 			"isBackground": true,
+			"dependsOn": "npm install (functions)",
+			"options": {
+				"cwd": "${workspaceFolder}/challenge-3\\functionapp"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "npm install (functions)",
+			"command": "npm install",
+			"options": {
+				"cwd": "${workspaceFolder}/challenge-3\\functionapp"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "npm prune (functions)",
+			"command": "npm prune --production",
+			"problemMatcher": [],
 			"options": {
 				"cwd": "${workspaceFolder}/challenge-3\\functionapp"
 			}
