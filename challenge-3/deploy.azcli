@@ -1,0 +1,34 @@
+$Random = -join ((97..122) | Get-Random -Count 6 | % {[char]$_}) # Ganerating a 6 character string to aid naming uniqueness
+
+$Location = "eastus" # Location of the Resources we will be creating
+
+$MyResourceGroup = "OpenHackRG" # Change to your resource group
+
+$StorageAccountName= "openhack1$Random"
+
+$FunctionName="ratings-py-$Random"
+
+$AppServicePlanName = "appservicehack-py-$Random"
+
+
+
+$runtime = "python"
+
+$runtimeversion = "3.9"
+
+
+
+
+az account set --subscription b146af43-cf95-43e4-8dfb-1156c7522b3d
+
+
+
+az appservice plan create --name $AppServicePlanName --resource-group $MyResourceGroup --sku P1v2 --is-linux
+
+az storage account create --name $StorageAccountName --sku Standard_LRS --resource-group $MyResourceGroup --location $Location
+
+az functionapp create --storage-account $StorageAccountName --runtime $runtime --plan $AppServicePlanName --runtime-version $runtimeversion --functions-version 3 --name $FunctionName --os-type Linux --resource-group $MyResourceGroup
+
+
+
+#func azure functionapp publish $FunctionName
