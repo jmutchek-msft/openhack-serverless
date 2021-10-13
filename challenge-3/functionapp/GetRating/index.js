@@ -5,8 +5,17 @@ module.exports = async function (context, req) {
 
    var documents = context.bindings.ratingid;
    var results = JSON.stringify(documents); 
+    
+    // Check is returns a result
+    if (documents.length < 1) {
+        status = 404;
+    }
+    else {
+        status = 200;
+    }
 
     context.res = {       
-        body: results
+        body: results,
+        status: status
     };
 }
