@@ -22,6 +22,10 @@ jobs:
     steps:
     - name: 'Checkout GitHub Action'
       uses: actions/checkout@master
+      
+    - name: 'Show me the codez'
+      shell: pwsh
+      run:  Get-ChildItem -Recurse -Attributes Directory
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
       uses: actions/setup-node@v1
