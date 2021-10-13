@@ -6,5 +6,6 @@
   "debug.internalConsoleOptions": "neverOpen",
   "azureFunctions.preDeployTask": "npm prune (functions)",
   "azureFunctions.suppressProject": true,
-  "azureFunctions.scmDoBuildDuringDeployment": true
+  "azureFunctions.scmDoBuildDuringDeployment": true,
+  "CosmosDBAttribute.ConnectionStringSetting":"AccountEndpoint=https://icecreamshopdb.documents.azure.com:443/;AccountKey=ILcNFVv1fpe1lDsCPxcNinObq9jDCJneOD82AzOrVGciRZ1QNojwAG5jCikcMwKi8d0IPvLTIt6LKabCdNCrAQ==;"
 }
