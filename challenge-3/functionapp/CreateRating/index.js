@@ -2,7 +2,10 @@ const axios = require('axios');
 
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processing a request.');
+    
+    // set up locals
     context.bindings.ratingsDocument = JSON.stringify({})
+    var currentStatus = 0
     
     // retrieve input payload elements
     const userId = req.body.userId;
@@ -15,6 +18,17 @@ module.exports = async function (context, req) {
     // e.g. https://serverlessohapi.azurewebsites.net/api/GetUser?userId=cc20a6fb-a91f-4192-874d-132493685376
     // TODO
 
+    const url = `https://serverlessohapi.azurewebsites.net/api/GetUser?userId=${userId}`
+    
+    await axios.get(url)
+        .then(function (response) {
+            context.log(response.status)
+            currentStatus = response.data
+        })
+        .catch(function (error) {
+            context.log(error.response.data);
+        });
+        
     // validate productId against existing API
     // e.g. https://serverlessohapi.azurewebsites.net/api/GetProduct?productId=75542e38-563f-436f-adeb-f426f1dabb5c
     // TODO
