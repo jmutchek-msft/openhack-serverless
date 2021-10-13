@@ -12,10 +12,10 @@
     {
       "name": "ratingsDocument",
       "type": "cosmosDB",
-      "databaseName": "ratings",
-      "collectionName": "ratings",
+      "databaseName": "ratingscontainer",
+      "collectionName": "ratingscontainer",
       "createIfNotExists": true,
-      "connectionStringSetting": "MyAccount_COSMOSDB",
+      "connectionStringSetting": "CosmosDBConnectionString",
       "direction": "out"
 
     },
