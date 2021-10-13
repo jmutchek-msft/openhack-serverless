@@ -27,6 +27,7 @@ module.exports = async function (context, req) {
         .catch(function (error) {
             context.log(error.response.data);
             currentStatus = 404
+            responseBody = error.response.data
         });
         
     // validate productId against existing API
@@ -43,6 +44,7 @@ module.exports = async function (context, req) {
             .catch(function (error) {
                 context.log(error.response.data);
                 currentStatus = 404
+                responseBody = error.response.data
             });    
         }
 
@@ -59,7 +61,7 @@ module.exports = async function (context, req) {
         responseBody = JSON.stringify({
             productId: productId,
             userId: userId,
-            timestamp: Date.now(),
+            timestamp: new Date(Date.now()).toISOString(),
             locationName: locationName,
             rating: rating,
             userNotes: userNotes
