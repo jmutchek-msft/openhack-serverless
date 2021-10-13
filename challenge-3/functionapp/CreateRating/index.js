@@ -16,14 +16,13 @@ module.exports = async function (context, req) {
 
     // validate userId against existing API 
     // e.g. https://serverlessohapi.azurewebsites.net/api/GetUser?userId=cc20a6fb-a91f-4192-874d-132493685376
-    // TODO
 
-    const url = `https://serverlessohapi.azurewebsites.net/api/GetUser?userId=${userId}`
+    var url = `https://serverlessohapi.azurewebsites.net/api/GetUser?userId=${userId}`
     
     await axios.get(url)
         .then(function (response) {
-            context.log(response.status)
-            currentStatus = response.data
+            context.log(response.data)
+            currentStatus = response.status
         })
         .catch(function (error) {
             context.log(error.response.data);
@@ -31,7 +30,17 @@ module.exports = async function (context, req) {
         
     // validate productId against existing API
     // e.g. https://serverlessohapi.azurewebsites.net/api/GetProduct?productId=75542e38-563f-436f-adeb-f426f1dabb5c
-    // TODO
+
+    url = `https://serverlessohapi.azurewebsites.net/api/GetProduct?productId=${productId}`
+    
+    await axios.get(url)
+        .then(function (response) {
+            context.log(response.data)
+            currentStatus = response.status
+        })
+        .catch(function (error) {
+            context.log(error.response.data);
+        });    
 
     // validate ratings is an integer between 0 and 5
     // TODO
