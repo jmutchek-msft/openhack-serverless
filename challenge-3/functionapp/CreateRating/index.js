@@ -6,6 +6,7 @@ module.exports = async function (context, req) {
     // set up locals
     context.bindings.ratingsDocument = JSON.stringify({})
     var currentStatus = 0
+    var responseMessage = ""
     
     // retrieve input payload elements
     const userId = req.body.userId;
@@ -26,6 +27,7 @@ module.exports = async function (context, req) {
         })
         .catch(function (error) {
             context.log(error.response.data);
+            currentStatus = 404
         });
         
     // validate productId against existing API
@@ -40,22 +42,26 @@ module.exports = async function (context, req) {
         })
         .catch(function (error) {
             context.log(error.response.data);
+            currentStatus = 404
         });    
 
     // validate ratings is an integer between 0 and 5
-    // TODO
+    
+    if (rating < 0 || rating > 5) {
+        currentStatus = 400
+        responseMessage = "Only ratings from 0 to 5 are allowed."
+    }
 
     // build ratings document for cosmosDB
 
     // return the entire review JSON payload with the newly created id and timestamp
 
-    const responseMessage = "Hello. This HTTP triggered function executed successfully."
 
     // return the proper status code
     // TODO
 
     context.res = {
-        // status: 200, /* Defaults to 200 */
+        status: currentStatus,
         body: responseMessage
     };
 }
