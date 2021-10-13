@@ -1,13 +1,16 @@
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+const axios = require('axios');
 
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processing a request.');
+    context.bindings.ratingsDocument = JSON.stringify({})
+    
     // retrieve input payload elements
     const userId = req.body.userId;
     const productId = req.body.productId;
     const locationName = req.body.locationName;
     const rating = req.body.rating;
     const userNotes = req.body.userNotes;
-    
+
     // validate userId against existing API 
     // e.g. https://serverlessohapi.azurewebsites.net/api/GetUser?userId=cc20a6fb-a91f-4192-874d-132493685376
     // TODO
@@ -21,21 +24,11 @@ module.exports = async function (context, req) {
 
     // build ratings document for cosmosDB
 
-    context.bindings.ratingsDocument = JSON.stringify({
-        productId: productId,
-        userId: userId,
-        timestamp: Date.now(),
-        locationName: locationName,
-        rating: rating,
-        userNotes: userNotes
-    });
-    
     // return the entire review JSON payload with the newly created id and timestamp
 
-    const responseMessage = ratingsDocument
+    const responseMessage = "Hello. This HTTP triggered function executed successfully."
 
     // return the proper status code
-
     // TODO
 
     context.res = {
