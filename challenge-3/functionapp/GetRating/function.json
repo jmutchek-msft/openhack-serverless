@@ -16,7 +16,7 @@
       "name": "res"
     },
     {
-      "name": "userId",
+      "name": "ratingid",
       "direction": "in",
       "type": "cosmosDB",
       "connectionStringSetting": "CosmosDBConnectionString",
