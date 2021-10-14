@@ -4,13 +4,12 @@ module.exports = async function (context, req) {
     // set up locals
    
    // var currentStatus = 200;
-    var responseBody = "Thank you! process completed... hopefully"   
-   
-    var saveThis = JSON.stringify(req.body.body);
-    context.log (req)   ;
+    var responseBody = "Thank you! process completed... hopefully"     
+    
+    context.log ("original request==>" + req)   ;
     context.bindings.mergedRecords = req.body.body; 
-    context.log (saveThis)   ;
-    responseBody = saveThis;
+    context.log ("req.body.body==>" + req.body.body);
+    responseBody = req.body.body ;
 
     // return the proper status code
 
