@@ -1,15 +1,17 @@
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processing a request.');
+    context.log('JavaScript HTTP trigger function processing a request.');    
     
-    // set up locals
-   
+    context.log ("original request==>" +  JSON.stringify(req));
    // var currentStatus = 200;
+    var saveThis = JSON.parse(req.body).body;
+    context.log ("req.body.body==>" + saveThis);
+
     var responseBody = "Thank you! process completed... hopefully"     
     
-    context.log ("original request==>" + req)   ;
-    context.bindings.mergedRecords = req.body.body; 
-    context.log ("req.body.body==>" + req.body.body);
-    responseBody = req.body.body ;
+    
+    context.bindings.mergedRecords = saveThis; 
+    
+    responseBody = saveThis ;
 
     // return the proper status code
 
