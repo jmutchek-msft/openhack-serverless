@@ -7,8 +7,9 @@ module.exports = async function (context, req) {
    
     var saveThis = JSON.stringify(req.body.body);
      
-    context.bindings.mergedRecords = saveThis; 
+    context.bindings.mergedRecords = req.body.body; 
     context.log (saveThis)   ;
+    responseBody = saveThis;
 
     // return the proper status code
 
