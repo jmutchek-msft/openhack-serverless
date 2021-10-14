@@ -45,3 +45,15 @@ content-type: application/json
   "rating": 11,
   "userNotes": "I love the subtle notes of orange in this ice cream!"
 }
+
+### Success GetRating
+GET http://localhost:7071/api/GetRating?ratingId=723eec7d-9328-4f8e-900b-fd27fd66c07e 
+
+### Failure GetRating - bad ratingId
+GET http://localhost:7071/api/GetRating?ratingId=723eec7d-9328-4f8e-900b-fd27fd66c073 
+
+### Success GetRatings
+GET http://localhost:7071/api/GetRatings?userid=cc20a6fb-a91f-4192-874d-132493685376
+
+### Failure GetRatings - bad userid
+GET http://localhost:7071/api/GetRatings?userid=cc20a6fb-a91f-4192-874d-132493685377
