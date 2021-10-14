@@ -1,0 +1,29 @@
+{
+    "bindings": [
+      {
+        "authLevel": "anonymous",
+        "type": "httpTrigger",
+        "direction": "in",
+        "name": "req",
+        "methods": [
+          "post"
+        ]
+      },
+      {
+        "name": "mergedRecords",
+        "type": "cosmosDB",
+        "databaseName": "filelist",
+        "collectionName": "filelist",
+        "createIfNotExists": true,
+        "connectionStringSetting": "CosmosDBConnectionString",
+        "direction": "out"
+  
+      },
+      {
+        "type": "http",
+        "direction": "out",
+        "name": "res"
+      }
+    ]
+  }
+  
